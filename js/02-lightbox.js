@@ -30,14 +30,7 @@ const imgElements = galleryItems.reduce((acum, item) => {
 //Рендер розмітки (додавання в DOM)
 galleryContainer.insertAdjacentHTML("beforeend", imgElements);
 
-//додавання слухача на подію клік
-galleryContainer.addEventListener("click", (e) => {
-  //Заборона перенаправлення по кліку на іншу сторінку за замовчуванням (зображення обгорнуте посиланням!!!)
-  e.preventDefault();
-  // This is where delegation «magic» happens: Реалізація делегування на div.gallery
-  if (e.target.nodeName !== "IMG") return;
-  //Ініціалізація бібліотеки та додавання відображення підписів до зображень
-  new SimpleLightbox(".gallery a", {
-    captionDelay: 250, //підпис розміщується знизу та з'являється через 250 мілісекунд після відкриття зображення
-  });
+//Ініціалізація бібліотеки та додавання відображення підписів до зображень
+new SimpleLightbox(".gallery a", {
+  captionDelay: 250, //підпис розміщується знизу та з'являється через 250 мілісекунд після відкриття зображення
 });
